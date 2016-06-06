@@ -12,7 +12,7 @@ public class Arm2 extends RealtimeThread {
 		}
 	}
 
-	private String getName() {
+	private String getDeviceName() {
 		return "Arm2";
 	}
 }

@@ -7,7 +7,7 @@ public class DepositBelt extends RealtimeThread {
 		System.out.println(this.getPriority() + " DB");
 	}
 
-	private String getName() {
+	private String getDeviceName() {
 		return "Deposit Belt";
 	}
 }

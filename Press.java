@@ -12,7 +12,7 @@ public class Press extends RealtimeThread {
 		}
 	}
 
-	private String getName() {
+	private String getDeviceName() {
 		return "Press";
 	}
 }

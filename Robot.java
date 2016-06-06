@@ -12,7 +12,7 @@ public class Robot extends RealtimeThread {
 		}
 	}
 
-	private String getName() {
+	private String getDeviceName() {
 		return "Robot";
 	}
 }

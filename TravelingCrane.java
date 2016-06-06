@@ -12,7 +12,7 @@ public class TravelingCrane extends RealtimeThread {
 		}
 	}
 
-	private String getName() {
+	private String getDeviceName() {
 		return "Traveling Crane";
 	}
 }
