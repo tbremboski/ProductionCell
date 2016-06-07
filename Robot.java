@@ -1,12 +1,13 @@
 import javax.realtime.PeriodicParameters;
+import javax.realtime.PriorityParameters;
 import javax.realtime.RealtimeThread;
 import javax.realtime.RelativeTime;
 public class Robot extends RealtimeThread {
-	Robot(PeriodicParameters pp){
-		super(null, pp);
+	Robot(PriorityParameters pri, PeriodicParameters pp){
+		super(pri, pp);
 	}
 	public void run(){
-		for (int i = 0; i < 30; ++i) {
+		for (int i = 0; i < 2; ++i) {
 			System.out.println(this.getPriority() + " R");
 			waitForNextPeriod();
 		}
