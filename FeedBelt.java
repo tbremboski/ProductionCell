@@ -11,9 +11,9 @@ public class FeedBelt extends RealtimeThread {
 	}
 
 	public void run() {
-		for(;;) {
+		while(true) {
 			if(sensor.getCraneOnFeed() && sensor.getTableDown()) {
-				System.out.println("The metal in on " + getDeviceName() + "!");
+				System.out.println("The metal is on " + getDeviceName() + "!");
 				
 				sensor.setCraneOnFeed(false);
 				try {
@@ -22,11 +22,13 @@ public class FeedBelt extends RealtimeThread {
 					//  ignore
 				}
 
-				System.out.println("The metal left " + getDeviceName() + "!");
+				System.out.println("The metal has left " + getDeviceName() + "!");
 
 				sensor.setCraneOnDeposit(true);
 				sensor.setMetalOnTable(true);
 			}
+
+			waitForNextPeriod();
 		}
 	}
 

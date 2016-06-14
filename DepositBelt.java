@@ -11,9 +11,9 @@ public class DepositBelt extends RealtimeThread {
 	}
 
 	public void run() {
-		for(;;) {
+		while(true) {
 			if(sensor.getArm2OnDeposit() && sensor.getCraneOnDeposit()) {
-				System.out.println("The metal in on " + getDeviceName() + "!");
+				System.out.println("The metal is on " + getDeviceName() + "!");
 				
 				try {
 					Thread.sleep(5000);
@@ -29,11 +29,13 @@ public class DepositBelt extends RealtimeThread {
 				} catch (InterruptedException ie) {
 					//  ignore
 				}
-				
+
 				System.out.println("The metal reached the end of " + getDeviceName() + "!");
 
 				sensor.setMetalBelowCrane(true);
 			}
+
+			waitForNextPeriod();
 		}
 	}
 

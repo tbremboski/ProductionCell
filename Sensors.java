@@ -39,99 +39,99 @@ class Sensors {
 		return singleton;
 	}
 
-	public boolean getCraneOnFeed() {
+	public synchronized boolean getCraneOnFeed() {
 		return craneOnFeed;
 	}
 
-	public boolean getCraneOnDeposit() {
+	public synchronized boolean getCraneOnDeposit() {
 		return craneOnDeposit;
 	}
 
-	public boolean getMetalOnTable() {
+	public synchronized boolean getMetalOnTable() {
 		return metalOnTable;
 	}
 
-	public boolean getTableDown() {
+	public synchronized boolean getTableDown() {
 		return tableDown;
 	}
 
-	public boolean getTableUp() {
+	public synchronized boolean getTableUp() {
 		return tableUp;
 	}
 
-	public boolean getArm1OnTable() {
+	public synchronized boolean getArm1OnTable() {
 		return arm1OnTable;
 	}
 
-	public boolean getArm1OnPress() {
+	public synchronized boolean getArm1OnPress() {
 		return arm1OnPress;
 	}
 
-	public boolean getArm2OnPress() {
+	public synchronized boolean getArm2OnPress() {
 		return arm2OnPress;
 	}
 
-	public boolean getArm2OnDeposit() {
+	public synchronized boolean getArm2OnDeposit() {
 		return arm2OnDeposit;
 	}
 
-	public boolean getPressOpened() {
+	public synchronized boolean getPressOpened() {
 		return pressOpened;
 	}
 
-	public boolean getPressClosed() {
+	public synchronized boolean getPressClosed() {
 		return pressClosed;
 	}
 
-	public boolean getMetalBelowCrane() {
+	public synchronized boolean getMetalBelowCrane() {
 		return metalBelowCrane;
 	}
 
-	public void setCraneOnFeed(boolean b) {
+	public synchronized void setCraneOnFeed(boolean b) {
 		craneOnFeed = b;
 	}
 
-	public void setCraneOnDeposit(boolean b) {
+	public synchronized void setCraneOnDeposit(boolean b) {
 		craneOnDeposit = b;
 	}
 
-	public void setMetalOnTable(boolean b) {
+	public synchronized void setMetalOnTable(boolean b) {
 		metalOnTable = b;
 	}
 
-	public void setTableDown(boolean b) {
+	public synchronized void setTableDown(boolean b) {
 		tableDown = b;
 	}
 
-	public void setTableUp(boolean b) {
+	public synchronized void setTableUp(boolean b) {
 		tableUp = b;
 	}
 
-	public void setArm1OnTable(boolean b) {
+	public synchronized void setArm1OnTable(boolean b) {
 		arm1OnTable = b;
 	}
 
-	public void setArm1OnPress(boolean b) {
+	public synchronized void setArm1OnPress(boolean b) {
 		arm1OnPress = b;
 	}
 
-	public void setArm2OnPress(boolean b) {
+	public synchronized void setArm2OnPress(boolean b) {
 		arm2OnPress = b;
 	}
 
-	public void setArm2OnDeposit(boolean b) {
+	public synchronized void setArm2OnDeposit(boolean b) {
 		arm2OnDeposit = b;
 	}
 
-	public void setPressOpened(boolean b) {
+	public synchronized void setPressOpened(boolean b) {
 		pressOpened = b;
 	}
 
-	public void setPressClosed(boolean b) {
+	public synchronized void setPressClosed(boolean b) {
 		pressClosed = b;
 	}
 
-	public void setMetalBelowCrane(boolean b) {
+	public synchronized void setMetalBelowCrane(boolean b) {
 		metalBelowCrane = b;
 	}
 }

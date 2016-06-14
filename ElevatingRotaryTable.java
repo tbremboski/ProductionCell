@@ -12,26 +12,24 @@ public class ElevatingRotaryTable extends RealtimeThread {
 	}
 
 	public void run() {
-		for(;;) {
+		while(true) {
 			if(sensor.getMetalOnTable() && sensor.getTableDown() && sensor.getArm1OnTable()) {
-				System.out.println("The metal in on " + getDeviceName() + "!");
+				System.out.println("The metal is on " + getDeviceName() + "!");
 				
 				try {
 					Thread.sleep(5000);
 				} catch (InterruptedException ie) {
 					//  ignore
 				}
-				
+
 				System.out.println("The metal got picked up by Arm1!");
 
 				sensor.setMetalOnTable(false);
 				sensor.setTableDown(false);
 				sensor.setTableUp(true);
-
-				// Thread.sleep(5000);
-				// sensor.setTableUp(false);
-				// sensor.setTableDown(true);
 			}
+
+			waitForNextPeriod();
 		}
 	}
 

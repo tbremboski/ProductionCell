@@ -12,9 +12,9 @@ public class Robot extends RealtimeThread {
 	}
 
 	public void run() {
-		for(;;) {
+		while(true) {
 			if(sensor.getArm1OnTable() && sensor.getTableUp() && sensor.getPressOpened()) {
-				System.out.println("The " + getDeviceName() + " is rotating!");
+				System.out.println("The " + getDeviceName() + " is rotating counterclockwisely!");
 				
 				try {
 					Thread.sleep(5000);
@@ -38,7 +38,7 @@ public class Robot extends RealtimeThread {
 				sensor.setPressOpened(false);
 				sensor.setPressClosed(true);
 			} else if(sensor.getArm1OnPress() && sensor.getPressOpened()) {
-				System.out.println("The " + getDeviceName() + " is rotating!");
+				System.out.println("The " + getDeviceName() + " is rotating clockwisely!");
 
 				try {
 					Thread.sleep(3500);
@@ -57,19 +57,21 @@ public class Robot extends RealtimeThread {
 					//  ignore
 				}
 
-				System.out.println("The " + getDeviceName() + " is rotating!");
+				System.out.println("The " + getDeviceName() + " is rotating counterclockwisely!");
 
 				try {
 					Thread.sleep(2500);
 				} catch (InterruptedException ie) {
 					//  ignore
 				}
-				
+
 				System.out.println("The metal has been put on the Deposit Belt!");
 
 				sensor.setArm2OnPress(false);
 				sensor.setArm2OnDeposit(true);
 			}
+
+			waitForNextPeriod();
 		}
 	}
 

@@ -12,7 +12,7 @@ public class Press extends RealtimeThread {
 	}
 
 	public void run() {
-		for(;;) {
+		while(true) {
 			if(sensor.getPressClosed()) {
 				System.out.println("The " + getDeviceName() + " is forging the metal!");
 				
@@ -21,12 +21,14 @@ public class Press extends RealtimeThread {
 				} catch (InterruptedException ie) {
 					//  ignore
 				}
-				
+
 				System.out.println("The metal has been forged!");
 
 				sensor.setPressClosed(false);
 				sensor.setPressOpened(true);
 			}
+
+			waitForNextPeriod();
 		}
 	}
 

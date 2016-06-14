@@ -11,7 +11,7 @@ public class TravelingCrane extends RealtimeThread {
 	}
 
 	public void run() {
-		for(;;) {
+		while(true) {
 			if(sensor.getMetalBelowCrane() && sensor.getCraneOnDeposit()) {
 				try {
 					Thread.sleep(1000);
@@ -30,8 +30,8 @@ public class TravelingCrane extends RealtimeThread {
 				sensor.setMetalBelowCrane(false);
 				sensor.setCraneOnDeposit(false);
 
-				System.out.println("The metal has been put on Feed Belt!");
-				
+				System.out.println("The " + getDeviceName() + " released the metal on Feed Belt!");
+
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException ie) {
@@ -40,6 +40,8 @@ public class TravelingCrane extends RealtimeThread {
 
 				sensor.setCraneOnFeed(true);
 			}
+
+			waitForNextPeriod();
 		}
 	}
 
