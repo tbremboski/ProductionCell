@@ -4,19 +4,40 @@ import javax.realtime.RealtimeThread;
 import javax.realtime.RelativeTime;
 public class ElevatingRotaryTable extends RealtimeThread {
 
-	private static final int MIN_DEGREE = 0;
-	private static final int MAX_DEGREE = 45;
+	private Sensors sensor;
 
-	private static final int MIN_HEIGHT = 0;
-	private static final int MAX_HEIGHT = 30;
-
-	ElevatingRotaryTable(PriorityParameters pri, PeriodicParameters pp){
-		super(pri, pp);
+	ElevatingRotaryTable(PeriodicParameters pp) {
+		super(null, pp);
+		sensor = Sensors.getInstance();
 	}
 
-	public void run(){
-		for (int i = 0; i < 2; ++i) {
-			System.out.println(this.getPriority() + " ERT");
+	public void run() {
+		for(;;) {
+			if(sensor.getMetalOnTable() && sensor.getTableDown() && sensor.getArm1OnTable()) {
+				System.out.println("The metal in on " + getDeviceName() + "!");
+				
+				try {
+					Thread.sleep(5000);
+				} catch (InterruptedException ie) {
+					//  ignore
+				}
+				
+				System.out.println("The metal got picked up by Arm1!");
+
+				sensor.setMetalOnTable(false);
+				sensor.setTableDown(false);
+				sensor.setTableUp(true);
+
+				// Thread.sleep(5000);
+				// sensor.setTableUp(false);
+				// sensor.setTableDown(true);
+			}
+		}
+	}
+
+	// public void run() {
+	// 	for (int i = 0; i < 2; ++i) {
+	// 		System.out.println(this.getPriority() + " ERT");
 
 		// 	System.out.println("Rotating clockwise " + getDeviceName() + "...");
 		// 	try {
@@ -58,9 +79,9 @@ public class ElevatingRotaryTable extends RealtimeThread {
 
 		// 	System.out.println("DONEEEEEEEE");
 
-			waitForNextPeriod();
-		}
-	}
+		// 	waitForNextPeriod();
+		// }
+	// }
 
 	private String getDeviceName() {
 		return "Elevating Rotary Table";
