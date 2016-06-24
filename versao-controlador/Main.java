@@ -11,8 +11,7 @@ public class Main {
 
 		RelativeTime r3000 = new RelativeTime(3000, 0);
 		RelativeTime r4500 = new RelativeTime(4500, 0);
-		RelativeTime r5000 = new RelativeTime(6000, 0);
-		RelativeTime r6000 = new RelativeTime(6000, 0);
+		RelativeTime r5000 = new RelativeTime(5000, 0);
 		RelativeTime r7000 = new RelativeTime(7000, 0);
 
 		PeriodicParameters fbParam = new PeriodicParameters(r3000);
@@ -20,7 +19,7 @@ public class Main {
 		PeriodicParameters rParam = new PeriodicParameters(r7000);
 		PeriodicParameters pParam = new PeriodicParameters(r4500);
 		PeriodicParameters dbParam = new PeriodicParameters(r7000);
-		PeriodicParameters tcParam = new PeriodicParameters(r6000);
+		PeriodicParameters tcParam = new PeriodicParameters(r5000);
 
 		FeedBelt fb = new FeedBelt(fbParam);
 		ElevatingRotaryTable ert = new ElevatingRotaryTable(ertParam);
